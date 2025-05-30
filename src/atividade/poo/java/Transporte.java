@@ -56,6 +56,7 @@ public abstract class Transporte {
 //regras da viagem
     public void realizarViagem(int numeroPassageiros){
         quantidadeDeViagens++;
+        System.out.println("===========Estatísticas dos veículos ==============");
         if (quantidadeDeViagens >= 4){
             System.out.println("O transporte " + id + " precisa passar por manutenção.");
         }
@@ -63,11 +64,15 @@ public abstract class Transporte {
             capacidade = numeroPassageiros;
         }
         //se o número de passageiros for maior que a capacidade, capacidade recebe esse número de passageiros, assim evitamos que a capacidade exceda
+        System.out.println("Vamos lá ");
     }
+
+
+
     //informações
     public void exibirInformacoes(){
         System.out.println("===========Estatísticas dos veículos ==============");
-        System.out.println("Número de viagens: " + numeroPassageiros);
+        System.out.println("Número de viagens: " + quantidadeDeViagens);
         System.out.println("quantidade de passageiros: " + numeroPassageiros);
         System.out.println();
     }
@@ -76,23 +81,5 @@ public abstract class Transporte {
         return valor;
     }
 
-    //Herança nas subclasses que contém extends
-    public class Onibus extends Transporte{
-
-        public Onibus(String id) {
-            super(id, numeroPassageiros);
-        }
-    }
-    public class Trem extends Transporte{
-
-        public Trem(String id) {
-            super(id, numeroPassageiros);
-        }
-    }
-    public class Van extends Transporte{
-
-        public Van(String id) {
-            super(id, numeroPassageiros);
-        }
-    }
+    public abstract void realizarViagem();
 }
